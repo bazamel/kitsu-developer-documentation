@@ -211,6 +211,10 @@ export default {
                 link: "/self-hosting/setup",
               },
               {
+                text: "Update",
+                link: "/self-hosting/update",
+              },
+              {
                 text: "Environment Variables",
                 link: "/self-hosting/environment-variables",
               },

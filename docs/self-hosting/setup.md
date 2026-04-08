@@ -344,38 +344,6 @@ sudo systemctl start zou zou-events
 sudo systemctl restart nginx
 ```
 
-## Updating Zou
-
-### Update package
-
-First, you have to upgrade the zou package:
-
-```bash
-sudo /opt/zou/zouenv/bin/python -m pip install --upgrade zou
-```
-
-
-### Update database schema
-
-Then, you need to upgrade the database schema:
-
-```bash
-DB_PASSWORD=mysecretpassword /opt/zou/zouenv/bin/zou upgrade-db
-```
-
-
-### Restart the Zou service
-
-Finally, restart the Zou service:
-
-```bash
-sudo systemctl restart zou zou-events
-```
-
-That's it! Your Zou instance is now up to date. 
-
-*NB: Make it sure by getting the API version number from `https://myzoudomain.com/api`.*
-
 ## II. Kitsu App Installation
 
 [Kitsu](https://kitsu.cg-wire.com) is a javascript UI that allows to manage Zou
@@ -436,17 +404,9 @@ You can now connect directly to your server IP through your browser and enjoy
 Kitsu!
 
 
-### Update Kitsu 
-
-To update Kitsu, update the files:
-
-```
-sudo rm -rf /opt/kitsu/dist
-sudo mkdir /opt/kitsu/dist
-curl -L -o /tmp/kitsu.tgz $(curl -v https://api.github.com/repos/cgwire/kitsu/releases/latest | grep 'browser_download_url.*kitsu-.*.tgz' | cut -d : -f 2,3 | tr -d \")
-sudo tar xvzf /tmp/kitsu.tgz -C /opt/kitsu/dist/
-rm /tmp/kitsu.tgz
-```
+::: tip
+To upgrade an existing Kitsu instance later, see the [update guide](/self-hosting/update).
+:::
 
 ## Seed data
 
