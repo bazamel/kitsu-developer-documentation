@@ -14,6 +14,14 @@ project = gazu.project.new_project(name="Agent 327", production_type="short", pr
 ```
 :::
 
+::: tip
+If your studio repeatedly creates similar projects, you can capture a
+project's configuration as a [project template](/guides/project-templates)
+and pre-populate everything below — task types, statuses, asset types,
+metadata descriptors, production settings — by passing `project_template=`
+to `new_project()`.
+:::
+
 
 ### Adding People to the Project Team
 

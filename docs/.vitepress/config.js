@@ -91,6 +91,10 @@ export default {
                 text: "Setting up a Production",
                 link: "/guides/production-setup",
               },
+              {
+                text: "Project Templates",
+                link: "/guides/project-templates",
+              },
               { text: "Task tracking", link: "/guides/task-tracking" },
               { text: "Publishing", link: "/guides/publishing" },
               { text: "Asset Management", link: "/guides/asset-management" },

@@ -141,6 +141,9 @@ and, when relevant, a `project_id`.
 | `metadata-descriptor:new` | `metadata_descriptor_id` |
 | `metadata-descriptor:update` | `metadata_descriptor_id` |
 | `metadata-descriptor:delete` | `metadata_descriptor_id` |
+| `project-template:new` | `project_template_id` |
+| `project-template:update` | `project_template_id` |
+| `project-template:delete` | `project_template_id` |
 
 ### Edit
 

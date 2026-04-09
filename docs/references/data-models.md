@@ -65,6 +65,53 @@ graph TD
 | `name` | string | |
 | `color` | string (hex) | |
 
+### ProjectTemplate
+
+A reusable snapshot of a project's configuration. Templates have no
+production data — no team, no dates, no tasks, no entities. See the
+[Project Templates guide](/guides/project-templates) for end-to-end usage.
+
+| Field | Type | Default |
+|---|---|---|
+| `name` | string (unique) | |
+| `description` | string | |
+| `fps` | string | `"25"` |
+| `ratio` | string | `"16:9"` |
+| `resolution` | string | `"1920x1080"` |
+| `production_type` | string (`"short"`, `"featurefilm"`, `"tvshow"`) | `"short"` |
+| `production_style` | string (same choices as Project) | `"2d3d"` |
+| `max_retakes` | int | `0` |
+| `is_clients_isolated` | bool | `false` |
+| `is_preview_download_allowed` | bool | `false` |
+| `is_set_preview_automated` | bool | `false` |
+| `is_publish_default_for_artists` | bool | `false` |
+| `homepage` | string | `"assets"` |
+| `hd_bitrate_compression` | int | `28` |
+| `ld_bitrate_compression` | int | `6` |
+| `file_tree` | dict | |
+| `data` | dict | |
+| `metadata_descriptors` | list of dicts (see below) | `[]` |
+| `task_types` | list of task type IDs | |
+| `task_statuses` | list of task status IDs | |
+| `asset_types` | list of entity type IDs | |
+| `status_automations` | list of status automation IDs | |
+
+Each entry in `metadata_descriptors` has the shape:
+
+| Field | Type | Notes |
+|---|---|---|
+| `name` | string | Human-readable label |
+| `field_name` | string | Slugified key used in the entity `data` dict |
+| `entity_type` | string (`"Asset"`, `"Shot"`, `"Edit"`, ...) | |
+| `data_type` | string (`"string"`, `"number"`, `"list"`, `"taglist"`, `"boolean"`, `"checklist"`) | |
+| `choices` | list of strings | Empty for free-form types |
+| `for_client` | bool | Whether the field is exposed to clients |
+| `departments` | list of department IDs | |
+| `position` | int | Optional ordering hint |
+
+When the template is applied to a project, each descriptor in this snapshot
+is materialized into a regular `MetadataDescriptor` row on that project.
+
 ## Entity
 
 ### Entity
