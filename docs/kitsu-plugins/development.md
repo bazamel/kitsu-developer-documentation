@@ -61,13 +61,19 @@ my_plugin/
 │   ├── vite.config.js
 │   └── src/
 ├── migrations/          # Alembic database migrations
-│   ├── env.py
-│   └── versions/
+│   └── versions/        # Only revision files go here
 └── tests/               # Test suite
     ├── conftest.py
     ├── test_resources.py
     └── test_services.py
 ```
+
+::: info Migrations boilerplate
+Plugins only need to ship a `migrations/versions/` directory with their
+revision files. Zou provides the Alembic `env.py`, `alembic.ini`, and
+`script.py.mako` automatically — you do **not** need to include these in
+your plugin.
+:::
 
 ---
 
@@ -182,6 +188,11 @@ Generate migrations after defining or modifying models:
 ```bash
 zou migrate-plugin-db --path ./plugins/my-plugin
 ```
+
+Zou manages the Alembic boilerplate for you. Each plugin gets its own
+version table (`alembic_version_<plugin_id>`) so migrations don't clash
+with other plugins or Zou's core tables. Revision files are written to
+your plugin's `migrations/versions/` directory.
 
 ### `resources.py`
 

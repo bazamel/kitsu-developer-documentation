@@ -27,11 +27,14 @@ zou install-plugin --path https://github.com/cgwire/kitsu-tickets.git
 
 ## What Happens During Installation
 
-1. Plugin files are copied to the Zou plugins directory
-2. Alembic database migrations run automatically (creating or updating tables)
-3. `pre_install()` and `post_install()` lifecycle hooks are called (if defined
-   by the plugin)
-4. Plugin routes are registered under `/api/plugins/<plugin_id>/`
+1. `pre_install()` lifecycle hook is called (if defined by the plugin)
+2. Plugin files are copied to the Zou plugins directory
+3. Alembic database migrations run automatically (creating or updating tables).
+   Zou provides the Alembic boilerplate (`env.py`, `alembic.ini`,
+   `script.py.mako`) — the plugin only needs to ship revision files under
+   `migrations/versions/`.
+4. `post_install()` lifecycle hook is called (if defined)
+5. Plugin routes are registered under `/api/plugins/<plugin_id>/`
 
 ## Restart Zou
 
