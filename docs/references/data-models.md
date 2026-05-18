@@ -482,7 +482,7 @@ A specific instance of an asset placed in a shot or scene.
 | `episode_id` | string (UUID) | |
 | `task_type_id` | string (UUID) | |
 | `for_client` | bool | `false` |
-| `for_entity` | string (`"shot"`, `"asset"`, `"sequence"`, `"edit"`) | `"shot"` |
+| `for_entity` | string (`"shot"`, `"asset"`, `"sequence"`, `"edit"`, `"episode"`) | `"shot"` |
 | `is_for_all` | bool | `false` |
 | `created_by` | string (UUID) | |
 
