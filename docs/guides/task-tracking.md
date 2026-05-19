@@ -114,6 +114,29 @@ gazu.task.start_task(task_dict)
 
 ```
 
+### Moving a Comment to Another Task
+
+Production managers and studio admins can re-target a comment posted on the
+wrong task — typically a client or director note that landed on the wrong
+task type of the same shot or asset — without retyping it.
+
+```python
+gazu.task.move_comment_to_task(source_task, comment, target_task)
+```
+
+The source task, the target task and the comment must all belong to the same
+entity (same shot, asset, sequence, episode or edit). The comment's text,
+attachments, mentions, original creation date and the task status change it
+carries are preserved. Notifications and news are rebuilt on the target
+task, so its assignees and watchers get notified as if the comment had just
+been posted there.
+
+::: tip
+The move is reserved to callers with the `manager` or `admin` role. Comments
+tied to a preview revision cannot be moved — the preview stays on the task
+that owns the revision.
+:::
+
 ## Reading User Workloads
 
 ### Getting the Todo List of the Logged-In User
