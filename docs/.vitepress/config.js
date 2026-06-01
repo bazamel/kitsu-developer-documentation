@@ -41,7 +41,20 @@ const allMarkdownTransformers = {
 export default {
   lang: "en-US",
   title: "Kitsu Developer",
-  head: [["link", { rel: "icon", href: "/kitsu.png" }]],
+  head: [
+    ["link", { rel: "icon", href: "/kitsu.png" }],
+    ['script', {}, `var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://cgwire.innocraft.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/cgwire.innocraft.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();`]
+  ],
   description:
     "Kitsu provides a public API that gives developers programmatic access to our core features to build integrations, custom tools, or extend the UI with Kitsu plugins.",
   ignoreDeadLinks: true,
