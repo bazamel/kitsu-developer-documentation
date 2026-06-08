@@ -48,6 +48,9 @@ graph TD
 | `is_set_preview_automated` | bool | `false` |
 | `homepage` | string | `"assets"` |
 | `is_publish_default_for_artists` | bool | `false` |
+| `is_bot_collaboration_enabled` | bool | `false` |
+| `is_single_preview_per_revision` | bool | `false` |
+| `revision_padding` | int | `0` |
 | `hd_bitrate_compression` | int | `28` |
 | `ld_bitrate_compression` | int | `6` |
 | `project_status_id` | string (UUID) | |
@@ -57,6 +60,11 @@ graph TD
 | `asset_types` | list of entity type IDs | |
 | `task_statuses` | list of task status IDs | |
 | `task_types` | list of task type IDs | |
+
+`revision_padding` is a display-only setting: the API always stores and
+returns the bare revision integer. It is the minimum number of digits a
+client should use when showing a revision (`0` = no padding, `3` turns
+revision `7` into `v007`).
 
 ### ProjectStatus
 
@@ -85,6 +93,8 @@ production data — no team, no dates, no tasks, no entities. See the
 | `is_preview_download_allowed` | bool | `false` |
 | `is_set_preview_automated` | bool | `false` |
 | `is_publish_default_for_artists` | bool | `false` |
+| `is_single_preview_per_revision` | bool | `false` |
+| `revision_padding` | int | `0` |
 | `homepage` | string | `"assets"` |
 | `hd_bitrate_compression` | int | `28` |
 | `ld_bitrate_compression` | int | `6` |
