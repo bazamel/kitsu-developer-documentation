@@ -36,6 +36,38 @@ Kitsu uses the Meilisearch service for its indexation.
 traditional auth and Active Directory auth (auth\_remote\_active\_directory).
 * `SECRET_KEY` (default: mysecretkey) Complex key used for auth token encryption.
 
+### SAML SSO
+
+See [SAML SSO](/self-hosting/security-assertion-markup-language) for the full
+setup guide.
+
+* `SAML_ENABLED` (default: "False"): Set to True to enable SAML SSO.
+* `SAML_IDP_NAME` (default: ""): Display name shown on the SAML login button.
+* `SAML_METADATA_URL` (default: ""): Identity provider SAML metadata URL.
+
+### OIDC SSO
+
+See [OIDC SSO](/self-hosting/openid-connect-sso) for the full setup guide.
+
+* `OIDC_ENABLED` (default: "False"): Set to True to enable OIDC SSO.
+* `OIDC_IDP_NAME` (default: ""): Display name shown on the OIDC login button.
+* `OIDC_DISCOVERY_URL` (default: ""): Provider OpenID configuration URL (ends
+  with `/.well-known/openid-configuration`).
+* `OIDC_CLIENT_ID` (default: ""): OAuth client identifier registered with the
+  provider.
+* `OIDC_CLIENT_SECRET` (default: ""): OAuth client secret.
+* `OIDC_SCOPES` (default: "openid email profile"): Space-separated scopes to
+  request.
+* `OIDC_EMAIL_CLAIM` (default: "email"): Claim used as the account email.
+* `OIDC_GIVEN_NAME_CLAIM` (default: "given_name"): Claim used for the first
+  name.
+* `OIDC_FAMILY_NAME_CLAIM` (default: "family_name"): Claim used for the last
+  name.
+* `OIDC_REQUIRE_EMAIL_VERIFIED` (default: "True"): When True, reject logins
+  whose `email_verified` claim is absent or false.
+* `OIDC_SKIP_2FA` (default: "False"): When True, OIDC sessions skip Kitsu's 2FA
+  setup gate. When False, `ENFORCE_2FA` applies as usual.
+
 ## Previews
 
 * `PREVIEW_FOLDER` (default: ./previews): The folder where
