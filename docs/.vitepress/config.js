@@ -260,7 +260,7 @@ export default {
                 link: "/self-hosting/openid-connect-sso",
               },
               {
-                text: "Logging",
+                text: "Log rotation",
                 link: "/self-hosting/logging",
               },
               {
