@@ -72,7 +72,12 @@ const signupUrl = computed(
 );
 
 function showPopup() {
-  visible.value = true;
+  const alreadySeen = sessionStorage.getItem("exit-popup");
+
+  if (!alreadySeen) {
+    visible.value = true;
+    sessionStorage.setItem("exit-popup", true);
+  }
 }
 
 function close() {
