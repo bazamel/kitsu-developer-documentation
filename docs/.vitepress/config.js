@@ -252,7 +252,15 @@ export default {
                 link: "/self-hosting/lightweight-directory-access-protocol",
               },
               {
-                text: "Logging",
+                text: "SAML SSO",
+                link: "/self-hosting/security-assertion-markup-language",
+              },
+              {
+                text: "OIDC SSO",
+                link: "/self-hosting/openid-connect-sso",
+              },
+              {
+                text: "Log rotation",
                 link: "/self-hosting/logging",
               },
               {

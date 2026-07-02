@@ -65,6 +65,28 @@ Another alternative is to use the `publish` shortcut to post a comment and link 
 
 ```
 
+### Adding extra previews to a revision
+
+A single revision can hold several preview files (for example multiple
+turntable angles or a movie plus its breakdown sheet). Once a first preview
+exists, attach additional ones with `add_extra_preview`. The new preview shares
+the revision of the reference preview file and its content is uploaded right
+away:
+
+```python
+extra_preview = gazu.task.add_extra_preview(
+    task,
+    comment,
+    preview_file,                      # reference preview (sets the revision)
+    "/path/to/my/second-file.mp4"
+)
+```
+
+If you only need to create the extra preview entry and upload the file yourself
+later, use the lower-level pair `create_extra_preview` (creates the entry) and
+`upload_preview_file` (uploads the content) — the same split as
+`create_preview` / `add_preview`.
+
 ### Linking Comments to Statuses or Versions
 
 Comments can result in a version change or task status update.
